@@ -4,6 +4,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
+		stories: ["./stories/*.stories.js"],
 		rules: [
 			{
 				test: /\.(js|jsx)$/,

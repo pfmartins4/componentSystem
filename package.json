@@ -2,19 +2,23 @@
   "dependencies": {
     "@babel/preset-react": "^7.9.4",
     "babel-plugin-root-import": "^6.5.0",
-    "material-icons-react": "^1.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.1.0"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
-    "@storybook/react": "^5.3.18",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-essentials": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
     "babel-loader": "^8.1.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
