@@ -3,18 +3,27 @@ import React from "react";
 
 
 
-const Button = ({ children, type, fill, size, icon, className, href,  }) => {
-
-    return <a className={className}>{children}</a>
-};
+const Button = ({
+     children, 
+     type, 
+     fill, 
+     size, 
+     icon, 
+     className,
+     rounded,
+     borderRadius,
+     isDark,
+     href 
+    }) => (href ? 
+        <a href={href}>
+            {children}
+        </a> :
+        <button className={className}>
+            {children}
+        </button>
+);
 
 export default Button;
 
 
-Button.defaultProps = {
-    type: "primary",
-    fill: "default",
-    size: "m",
-    icon: undefined
-}
 

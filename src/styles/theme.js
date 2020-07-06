@@ -1,4 +1,4 @@
-
+import { lighten, darken } from "./helper/coloring";
 const colors = {
     greyScale: {
         black: "#212121",
@@ -24,39 +24,54 @@ const colors = {
         dark: "#853c15",
         alpha: "#8a482580"
     },
-    info: {
-        success: "#7dba73",
-        danger: "#c25a46",
-        warning: "#d68024",
+    success: {
+        light: lighten(10,"#7dba73"),
+        default: "#7dba73",
+        dark: darken(10, "#7dba73")
     },
-    functional: {
-        transparent: "transparent"
+    danger: {
+        light: lighten(10, "#c25a46"),
+        default: "#c25a46",
+        dark: darken(10, "#c25a46")
+    },
+    warn: {
+        light: lighten(10, "#d68024"),
+        default: "#d68024",
+        dark: darken(10, "#d68024")
     }
+
 }
 
 
+const sizeMultiplier = (multiplier, prop) => {
+    const value = parseFloat(prop.match(/(\d+\.{0,1}\d+)|\d+/));
+    const returnable = prop.replace(value, multiplier*(value));
+    return returnable
+}
+
 const paddings = {
-    sm: "0.25em",
-    m: "0.5em",
-    l: "0.75em"
+    sm: "0.25rem",
+    md: "0.5rem",
+    lg: "0.75rem"
 }
 
 const borders = {
     no: "none",
     sm: "1px solid",
-    m: "2px solid",
-    l: "3px solid",
-    smRadius: "0.25em",
-    mRadius: "0.50em",
-    lRadius: "0.75em"
+    md: "2px solid",
+    lg: "3px solid",
+    radius: {
+        sm: "0.125rem",
+        md: "0.25rem",
+        lg: "0.50rem"}
 }
 
 const font = {
     family: "verdada",
     size: {
-        sm: "0.75em",
-        m: "1em",
-        l: "1.25em"
+        sm: "0.75rem",
+        md: "1rem",
+        lg: "1.5rem"
     },
     weight: {
         light: 300,
@@ -76,4 +91,4 @@ const theme = {
 
 
 export default theme;
-export { colors, font, borders, paddings }
+export { colors, font, borders, paddings, sizeMultiplier }
