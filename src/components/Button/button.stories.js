@@ -1,17 +1,13 @@
 import React from "react";
 import Button from "./index";
 import { withKnobs, text, boolean, number, select } from "@storybook/addon-knobs";
-import mdx from "./button.mdx";
 
 
 export default {
   component: Button,
   title: "Button",
   decorators: [withKnobs],
-  parameters: {
-    docs: {page: mdx }
-  }
-   };
+};
 
 
 export const Component = ()=> {
