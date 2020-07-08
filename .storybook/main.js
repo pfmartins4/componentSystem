@@ -5,16 +5,26 @@ const custom = require('../webpack.config.js');
 
 module.exports = {
   stories: [
-    "../src/components/**/*.stories.js","../src/styles/**/*.stories.js", "../stories/*.stories.js"
+    "../src/components/**/*.stories.(js|mdx)",
+    "../src/styles/**/*.stories.(js|mdx)", 
+    "../stories/*.stories.(js|mdx)"
   ],
   addons: [
-    "@storybook/addons",
-    "@storybook/addon-actions",
+    "@storybook/addon-actions/register",
     "@storybook/addon-essentials",
     "@storybook/addon-knobs/register",
-    "@storybook/addon-links"
+    "@storybook/addon-links/register",
+    {
+      name: '@storybook/addon-docs/preset',
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null,
+      },
+    },
   ],
+
   webpackFinal: (config) => {
-    return { ...config, module: { ...config.module, rules: custom.module.rules } };
+    return { ...config, module: {...config.module, rules: custom.module.rules } };
   },
 };
