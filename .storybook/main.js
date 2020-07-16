@@ -7,7 +7,6 @@ module.exports = {
   stories: [
     "../src/components/**/*.stories.(js|mdx)",
     "../src/styles/**/*.stories.(js|mdx)", 
-    "../stories/*.stories.(js|mdx)"
   ],
   addons: [
     "@storybook/addon-actions/register",
@@ -15,7 +14,7 @@ module.exports = {
     "@storybook/addon-knobs/register",
     "@storybook/addon-links/register",
     {
-      name: '@storybook/addon-docs/preset',
+      name: '@storybook/addon-docs/react/preset',
       options: {
         configureJSX: true,
         babelOptions: {},
@@ -23,8 +22,4 @@ module.exports = {
       },
     },
   ],
-
-  webpackFinal: (config) => {
-    return { ...config, module: {...config.module, rules: custom.module.rules } };
-  },
 };

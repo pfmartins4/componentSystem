@@ -131,6 +131,9 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         border: none;
     }
+    #root {
+        min-height: 100%;
+    }
 `
 
 export default GlobalStyle;

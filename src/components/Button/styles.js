@@ -4,32 +4,40 @@ import Button from "./Button";
 const { size: fontSize, family } = font;
 
 const Styles = styled(Button)`
-    background: ${({ type, fill }) => fill === "default" ? colors[type]["default"] : "none"};
-    border: ${borders.sm} ${({ type, fill }) => fill === "outlined" ? colors[type]["default"] : "transparent"};
-    border-radius: ${({borderRadius, rounded}) => rounded ? sizeMultiplier(4, borders.radius.lg): borders.radius[borderRadius]};
+    background: ${({ color, type }) => type === "default" ? colors[color]["default"] : "none"};
+    border: ${borders.sm} ${({ color, type }) => type === "outlined" ? colors[color]["default"] : "transparent"};
+    border-radius: ${({borderRadius}) => borderRadius === "rounded" ? sizeMultiplier(4, borders.radius.lg): borders.radius[borderRadius]};
+    color: ${({type, color}) => type !== "default" ? colors[color]["default"] : "inherit"};
     font-size: ${({ size }) => fontSize[size]};
-    padding: ${({ size }) => `${paddings[size]} ${sizeMultiplier(4, paddings[size])}`};
+    font-weight: 600;
     line-height: ${({ size }) => fontSize[size]};
     margin: 0;
-    font-weight: 600;
-    color: ${({fill, type}) => fill === "outlined" ? colors[type]["default"] : "inherit"};
+    padding: ${({ size, type }) => type === "default" || type === "outlined" ? `${paddings[size]} ${sizeMultiplier(4, paddings[size])}` : "none"};
+    transition: background-color 0.3s;
+    text-decoration: ${({type}) => type === "link" ? "underline" : "none" };
     cursor: pointer;
     &:focus {
         outline: none;
     }
+    &.focusWithin,
     &:hover {
-
+        background: ${({color, type})=> type === "default" ? colors[color]["dark"] : "transparent" };
+        border-color: ${({color, type})=> type === "outlined" ? colors[color]["dark"] : "transparent" };
+        color: ${({color, type}) => type !== "default" ? colors[color]["dark"] : "inherit" };
     }
+
 `
 
 Styles.defaultProps = {
-    type: "primary",
-    fill: "default",
-    size: "md",
-    rounded: false,
     borderRadius: "md",
+    className: undefined,
+    children: undefined,
+    color: "primary",
     isDark: false,
-    icon: undefined
+    href: undefined,
+    onClick: undefined,
+    type: "default",
+    size: "md"
 }
 
 

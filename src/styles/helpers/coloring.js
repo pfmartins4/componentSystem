@@ -27,7 +27,6 @@ const rgb2Hsl = (_r, _g, _b) => {
       }
     }
   }
-    console.log(lightness)
   if(chroma === 0) {
     saturation = 0;
   }
@@ -38,7 +37,6 @@ const rgb2Hsl = (_r, _g, _b) => {
   hue = hue < 0 ? hue + 360: hue;
   lightness = parseFloat(lightness.toFixed(3)) * 100
   saturation = parseFloat(saturation.toFixed(3)) * 100
-  console.log("final", {hue, lightness, saturation})
   return [hue, saturation, lightness];
 }
 
@@ -85,7 +83,6 @@ const lighten = (amount, color) => {
     hslValues = parseHSLArray(color);
   }
   const lightness = Math.min(hslValues[2] + amount, 100)
-  console.log(lightness)
   return parseHsl([hslValues[0], hslValues[1], lightness]);
 }
 
@@ -106,6 +103,7 @@ const darken = (amount, color) => {
 const parseHsl = (hslArray) => {
   return `hsl(${hslArray[0]}, ${hslArray[1]}%, ${hslArray[2]}%)`
 }
+
 
 export default rgb2Hsl;
 export { parseRGBArray, parseHSLArray, lighten, darken }

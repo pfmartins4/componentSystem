@@ -1,4 +1,4 @@
-import { lighten, darken } from "./helper/coloring";
+import { lighten, darken } from "./helpers/coloring";
 const colors = {
     greyScale: {
         black: "#212121",

@@ -10,6 +10,6 @@ addParameters({
   }
 })
 
-addDecorator(s => <div style={{paddingLeft: "10px", paddingTop: "30px"}}><GlobalStyle />{s()}</div>);
+addDecorator(s => <div style={{display: "flex", minHeight: "2rem"}}><GlobalStyle />{s()}</div>);
 
-configure(require.context('../src/components', true, /\.stories\.(js|mdx)$/), module);
+/* configure(require.context('../src/components', true, /\.stories\.(js|mdx)$/), module); */

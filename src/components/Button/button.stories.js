@@ -1,19 +1,19 @@
 import React from "react";
 import Button from "./index";
+import { Preview, Story } from '@storybook/addon-docs/blocks';
 import { withKnobs, text, boolean, number, select } from "@storybook/addon-knobs";
 
 
 export default {
   component: Button,
-  title: "Button",
-  decorators: [withKnobs],
+  title: "Desing System/Button",
+  decorators: [withKnobs]
 };
 
-
-export const Component = ()=> {
+export const buttonWithKnobs = () => {
   const groupId = "Props"
-  const type = select(
-    "type",
+  const color = select(
+    "color",
     [
       "primary",
       "secondary",
@@ -24,10 +24,12 @@ export const Component = ()=> {
     "primary",
     groupId
   );
-  const fill = select(
-    "fill", 
+  const type = select(
+    "type", 
     [
       "default",
+      "text",
+      "link",
       "outlined"
     ],
     "default",
@@ -45,7 +47,6 @@ export const Component = ()=> {
   );
   const icon = text("Icon", "", groupId);
   const label = text("Children", "Botão", groupId);
-  const rounded = boolean("Rounded", false, groupId);
   const borderRadius = select(
     "Border Radius", 
     [
@@ -56,17 +57,14 @@ export const Component = ()=> {
     "md",
     groupId
     )
-  const isDark = boolean("Rounded", false, groupId);
   return (
-    <Button 
-      type={type}
-      size={size}
-      fill={fill}
-      icon={icon}
-      rounded={rounded}
-      borderRadius={borderRadius}
-    >
-      {label}
-    </Button>
+        <Button 
+          type={type}
+          color={color}
+          size={size}
+          icon={icon}
+          borderRadius={borderRadius}
+        >
+          {label}
+        </Button>
 )};
-
