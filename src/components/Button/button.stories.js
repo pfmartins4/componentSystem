@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "./index";
-import { Preview, Story } from '@storybook/addon-docs/blocks';
-import { withKnobs, text, boolean, number, select } from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 
 export default {

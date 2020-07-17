@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import NunitoSansBlack from "/assets/fonts/NunitoSans/NunitoSans-Black.ttf";
+import { createGlobalStyle } from "styled-components"
+import NunitoSansBlack from "/assets/fonts/NunitoSans/NunitoSans-Black.ttf"
 import NunitoSansBlackItalic from "/assets/fonts/NunitoSans/NunitoSans-BlackItalic.ttf"
 import NunitoSansExtraBold from "/assets/fonts/NunitoSans/NunitoSans-ExtraBold.ttf"
 import NunitoSansExtraBoldItalic from "/assets/fonts/NunitoSans/NunitoSans-ExtraBoldItalic.ttf"
@@ -13,11 +13,12 @@ import NunitoSansLigth from "/assets/fonts/NunitoSans/NunitoSans-Light.ttf"
 import NunitoSansLigthItalic from "/assets/fonts/NunitoSans/NunitoSans-LightItalic.ttf"
 import NunitoSansExtraLight from "/assets/fonts/NunitoSans/NunitoSans-ExtraLight.ttf"
 import NunitoSansExtraLightItalic from "/assets/fonts/NunitoSans/NunitoSans-ExtraLightItalic.ttf"
+import { colors } from "./theme"
 
 const headers = () => {
-    let headers = ``;
-    for (let i = 1; i < 7; i++) headers = `${headers} h${i}${i < 6 ? "," : ""}`;
-    return headers;
+  let headers = ``
+  for (let i = 1; i < 7; i++) headers = `${headers} h${i}${i < 6 ? "," : ""}`
+  return headers
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -119,21 +120,22 @@ const GlobalStyle = createGlobalStyle`
         src: local("NunitoSans"),
             url(${NunitoSansExtraLightItalic}) format("truetype");
     }
-    html, body, div, span, p, button, a, 
-    input, label, 
-    ${headers()}   
+    html, body, div, span, p, button, a,
+    input, label,
+    ${headers()}
     {
-        background: none;
-        margin: 0;
+        background: ${colors.white.default};
         font-family: "NunitoSans";
         font-weight: 400;
         font-style: normal;
-        padding: 0;
+        color: ${colors.black.default};
         border: none;
+        margin: 0;
+        padding: 0;
     }
     #root {
         min-height: 100%;
     }
-`
+    `
 
-export default GlobalStyle;
+export default GlobalStyle
