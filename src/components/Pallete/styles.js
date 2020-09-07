@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import { paddings, borders, colors } from "/styles/theme"
+import React from "react";
+import styled from "styled-components";
+import { paddings, borders, colors } from "/styles/theme";
 
 const {
   greyScale: { black, grey, darkGrey, white },
-} = colors
+} = colors;
 
 const Styles = styled.div`
   width: 50px;
@@ -12,7 +12,7 @@ const Styles = styled.div`
   border: ${borders.sm} ${black};
   border-radius: ${borders.smRadius};
   background: ${({ color }) => color};
-`
+`;
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const Container = styled.div`
   padding: ${paddings.m};
   background: ${({ type }) => (type === "dark" ? darkGrey : white)};
   color: ${({ type }) => (type === "dark" ? white : black)};
-`
+`;
 
 const ColorWraper = styled.div`
   display: flex;
@@ -33,11 +33,11 @@ const ColorWraper = styled.div`
     margin-bottom: ${paddings.m};
     margin-right: ${paddings.l};
   }
-`
+`;
 
 const Wrapper = styled.div`
   background: ${white};
   width: 535px;
-`
-export { Container, ColorWraper, Wrapper }
-export default Styles
+`;
+export { Container, ColorWraper, Wrapper };
+export default Styles;

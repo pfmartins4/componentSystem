@@ -13,7 +13,7 @@
       "default": "#edc44a"
     },
     "secondary": {
-      "default": "#8a4825"
+      "default": "#e0a905"
     },
     "success": {
       "default": "#7dba73"
@@ -31,7 +31,7 @@
     "lg": "0.75rem"
   },
   "borders": {
-    "no": "none",
+    "not": "none",
     "sm": "1px solid",
     "md": "2px solid",
     "lg": "3px solid",
@@ -42,7 +42,7 @@
     }
   },
   "font": {
-    "family": "verdada",
+    "family": "'NunitoSans', 'Montserrat', 'Open Sans', 'Lato', 'Raleway'",
     "size": {
       "sm": "0.75rem",
       "md": "1rem",

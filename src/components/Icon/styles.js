@@ -1,8 +1,14 @@
-import styled from "styled-components"
-import { colors, borders, font, paddings, sizeMultiplier } from "/styles/theme"
-import "material-design-icons/iconfont/material-icons.css"
+import styled from "styled-components";
 
-const Icon = styled.i`
+import Icon from "./Icon";
+
+import { colors, borders, font, paddings, sizeMultiplier } from "/styles/theme";
+
+import "material-design-icons/iconfont/material-icons.css";
+
+const { size: fontSize, family } = font;
+
+const Styles = styled(Icon)`
   @font-face {
     font-family: "Material Icons";
     font-style: normal;
@@ -42,7 +48,12 @@ const Icon = styled.i`
     src: url(https://fonts.gstatic.com/s/materialiconstwotone/v21/hESh6WRmNCxEqUmNyh3JDeGxjVVyMg4tHGctNCu0.woff2)
       format("woff2");
   }
-  color: ${({ color }) => colors[color]["default"]};
-`
 
-export default Icon
+  color: ${({ color }) => colors[color]["default"]};
+
+  font-size: ${({ size }) => fontSize[size]};
+
+  line-height: ${({ size }) => fontSize[size]};
+`;
+
+export default Styles;

@@ -1,67 +1,67 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 const useFocusWithin = ref => {
-  const [focused, setFocused] = useState(false)
-  const [hadMouseEvent, setMouseEvent] = useState(false)
-  const [hadKeyboarEvent, setKeyboardEvent] = useState(false)
-  const [hasFocusWithin, setFocusWithin] = useState(false)
+  const [focused, setFocused] = useState(false);
+  const [hadMouseEvent, setMouseEvent] = useState(false);
+  const [hadKeyboarEvent, setKeyboardEvent] = useState(false);
+  const [hasFocusWithin, setFocusWithin] = useState(false);
   useEffect(() => {
     if (ref && ref.current) {
-      const focusHandler = ref.current.onfocus
-      const blurHandler = ref.current.onblur
-      const clickHandler = ref.current.onclick
-      const mouseUpHandler = ref.current.onmouseup
-      const mouseDownHablder = ref.current.onmousedown
-      const doubleClickHandler = ref.current.ondoubleClick
-      const keyDownHandler = ref.current.onkeydown
-      const keyPressHandler = ref.current.onkeypress
-      const keyUpHandler = ref.current.onkeyup
+      const focusHandler = ref.current.onfocus;
+      const blurHandler = ref.current.onblur;
+      const clickHandler = ref.current.onclick;
+      const mouseUpHandler = ref.current.onmouseup;
+      const mouseDownHablder = ref.current.onmousedown;
+      const doubleClickHandler = ref.current.ondoubleClick;
+      const keyDownHandler = ref.current.onkeydown;
+      const keyPressHandler = ref.current.onkeypress;
+      const keyUpHandler = ref.current.onkeyup;
       ref.current.onfocus = evt =>
-        setFocused(true) || (focusHandler && focusHandler(evt))
+        setFocused(true) || (focusHandler && focusHandler(evt));
       ref.current.onblur = evt =>
         setFocused(false) ||
         setKeyboardEvent(false) ||
         setFocused(false) ||
         setMouseEvent(false) ||
-        (blurHandler && blurHandler(evt))
+        (blurHandler && blurHandler(evt));
       ref.current.onclick = evt =>
         setMouseEvent(true) ||
         setKeyboardEvent(false) ||
-        (clickHandler && clickHandler(evt))
+        (clickHandler && clickHandler(evt));
       ref.current.onmouseup = evt =>
         setMouseEvent(true) ||
         setKeyboardEvent(false) ||
-        (mouseUpHandler && mouseUpHandler(evt))
+        (mouseUpHandler && mouseUpHandler(evt));
       ref.current.onmousedown = evt =>
         setMouseEvent(true) ||
         setKeyboardEvent(false) ||
-        (mouseDownHablder && mouseDownHablder(evt))
+        (mouseDownHablder && mouseDownHablder(evt));
       ref.current.ondoubleClick = evt =>
         setMouseEvent(true) ||
         setKeyboardEvent(false) ||
-        (doubleClickHandler && doubleClickHandler(evt))
+        (doubleClickHandler && doubleClickHandler(evt));
       ref.current.onkeydown = evt =>
         setKeyboardEvent(true) ||
         setMouseEvent(false) ||
-        (keyDownHandler && keyDownHandler(evt))
+        (keyDownHandler && keyDownHandler(evt));
       ref.current.onkeypress = evt =>
         setKeyboardEvent(true) ||
         setMouseEvent(false) ||
-        (keyPressHandler && keyPressHandler(evt))
+        (keyPressHandler && keyPressHandler(evt));
       ref.current.onkeyup = evt =>
         setKeyboardEvent(true) ||
         setMouseEvent(false) ||
-        (keyUpHandler && keyUpHandler(evt))
+        (keyUpHandler && keyUpHandler(evt));
     }
-  }, [])
+  }, []);
   useEffect(() => {
     if (focused && !hadMouseEvent && hadKeyboarEvent) {
-      setFocusWithin(true)
+      setFocusWithin(true);
     } else {
-      setFocusWithin(false)
+      setFocusWithin(false);
     }
-  }, [focused, hadMouseEvent, hadKeyboarEvent])
+  }, [focused, hadMouseEvent, hadKeyboarEvent]);
 
-  return hasFocusWithin
-}
-export default useFocusWithin
+  return hasFocusWithin;
+};
+export default useFocusWithin;

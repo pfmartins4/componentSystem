@@ -1,69 +1,51 @@
 import React from "react";
 import Button from "./index";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
-
+import icons from "/components/Icon/iconNames";
 
 export default {
   component: Button,
   title: "Desing System/Button",
-  decorators: [withKnobs]
+  argTypes: {
+    onClick: {
+      action: "clicked",
+    },
+    children: {
+      control: "Button",
+    },
+    icon: {
+      control: {
+        type: "select",
+        options: icons,
+      },
+    },
+  },
 };
 
-export const buttonWithKnobs = () => {
-  const groupId = "Props"
-  const color = select(
-    "color",
-    [
-      "primary",
-      "secondary",
-      "success",
-      "warn",
-      "danger"
-    ],
-    "primary",
-    groupId
-  );
-  const type = select(
-    "type", 
-    [
-      "default",
-      "text",
-      "link",
-      "outlined"
-    ],
-    "default",
-    groupId
-  );
-  const size = select(
-    "size", 
-    [
-      "sm",
-      "md",
-      "lg"
-    ],
-    "md",
-    groupId
-  );
-  const icon = text("Icon", "", groupId);
-  const label = text("Children", "Botão", groupId);
-  const borderRadius = select(
-    "Border Radius", 
-    [
-      "sm",
-      "md",
-      "lg"
-    ],
-    "md",
-    groupId
-    )
+export const button = ({
+  borderRadius,
+  children,
+  className,
+  color,
+  href,
+  icon,
+  isDark,
+  onClick,
+  type,
+  size,
+}) => {
   return (
-        <Button 
-          type={type}
-          color={color}
-          size={size}
-          icon={icon}
-          borderRadius={borderRadius}
-        >
-          {label}
-        </Button>
-)};
+    <Button
+      borderRadius={borderRadius}
+      className={className}
+      color={color}
+      href={href}
+      icon={icon}
+      isDark={isDark}
+      onClick={onClick}
+      type={type}
+      size={size}
+    >
+      {children}
+    </Button>
+  );
+};

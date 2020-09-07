@@ -931,6 +931,6 @@ const iconNames = [
   "zoom_in",
   "zoom_out",
   "zoom_out_map",
-]
+];
 
-export default iconNames
+export default iconNames;

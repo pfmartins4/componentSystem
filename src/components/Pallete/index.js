@@ -1,8 +1,8 @@
-import React from "react"
-import { colors } from "/styles/theme"
-import Color, { Container, ColorWraper, Wrapper } from "./styles"
+import React from "react";
+import { colors } from "/styles/theme";
+import Color, { Container, ColorWraper, Wrapper } from "./styles";
 
-const background = ["dark", "light"]
+const background = ["dark", "light"];
 
 const Pallete = () => (
   <Wrapper>
@@ -27,6 +27,6 @@ const Pallete = () => (
       </>
     ))}
   </Wrapper>
-)
+);
 
-export default Pallete
+export default Pallete;
