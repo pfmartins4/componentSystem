@@ -2,6 +2,9 @@
   "colors": {
     "black": {
       "default": "#343434"
+    },
+    "terciary": {
+      "default": "#78503a"
     }
   }
 }

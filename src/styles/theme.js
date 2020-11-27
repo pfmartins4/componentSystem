@@ -14,8 +14,11 @@ const generateJsonTheme = () => {
       themeOverWrite = context(fileName);
     }
   }
-  colors = !(themeOverWrite && themeOverWrite.colors)
-    ? defaultTheme.colors
+  colors 
+    if(themeOverWrite?.colors){
+
+    }
+    ? 
     : Object.keys(defaultTheme.colors).reduce(
         (acc, color) => ({
           ...acc,
@@ -40,6 +43,7 @@ const generateJsonTheme = () => {
         }),
         {}
       );
+
   paddings = !(themeOverWrite && themeOverWrite.paddings)
     ? defaultTheme.paddings
     : Object.keys(defaultTheme.paddings).reduce(
