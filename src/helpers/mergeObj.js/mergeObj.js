@@ -1,6 +1,4 @@
-import mergeArrays from "/helpers/mergeArrays";
-
-const deepMergeObj = () => {
+const mergeObj = () => {
   return Object.assign(obj1, obj2);
 };
 
