@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import Icon from "./Icon";
 
-import { colors, borders, font, paddings, sizeMultiplier } from "/styles/theme";
+import { colors, borders, font, paddings, sizeMultiplier } from "styles/theme";
 
 import "material-design-icons/iconfont/material-icons.css";
 

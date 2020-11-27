@@ -1,5 +1,5 @@
 import React from "react";
-import { colors } from "/styles/theme";
+import { colors } from "styles/theme";
 import Color, { Container, ColorWraper, Wrapper } from "./styles";
 
 const background = ["dark", "light"];

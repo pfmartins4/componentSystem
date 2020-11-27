@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { paddings, borders, colors } from "/styles/theme";
+import { paddings, borders, colors } from "styles/theme";
 
-const {
-  greyScale: { black, grey, darkGrey, white },
-} = colors;
+const { black, grey, darkGrey, white } = colors;
 
 const Styles = styled.div`
   width: 50px;

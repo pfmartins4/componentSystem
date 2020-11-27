@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borders } from "/styles/theme";
+import { borders } from "styles/theme";
 
 const Checker = styled.div.attrs(({ color }) => ({
   style: {
