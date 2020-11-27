@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import useFocusWithin from "/styles/helpers/focusWithin";
+import useFocusWithin from "styles/helpers/focusWithin";
 import PropTypes from "prop-types";
-import Icon from "/components/Icon";
+import Icon from "components/Icon";
 
 /**
  *

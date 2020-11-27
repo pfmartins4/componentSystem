@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { paddings, colors, borders } from "/styles/theme";
+import { paddings, colors, borders } from "styles/theme";
 export default styled.div`
   display: grid;
   grid-template:

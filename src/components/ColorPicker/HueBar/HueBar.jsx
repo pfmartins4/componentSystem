@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Bar, { HueThumbNail } from "./styles";
-import debounce from "/helpers/debounce";
+import debounce from "helpers/debounce";
 const HueBar = ({ className, hue, onChange }) => {
   const [position, setPosision] = useState(0);
   const ref = useRef(null);

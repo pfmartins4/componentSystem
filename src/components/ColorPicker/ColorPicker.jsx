@@ -9,7 +9,7 @@ import rgb2Hsl, {
   parseHsl,
   parseRgb,
   parseHex,
-} from "/styles/helpers/coloring";
+} from "styles/helpers/coloring";
 import { hsl2Rgb } from "../../styles/helpers/coloring";
 const ColorPicker = ({ className, hex, hsla, rgba, onChange, config }) => {
   const [hue, setHue] = useState(0);

@@ -1,18 +1,18 @@
 import { createGlobalStyle } from "styled-components";
-import NunitoSansBlack from "/assets/fonts/NunitoSans/NunitoSans-Black.ttf";
-import NunitoSansBlackItalic from "/assets/fonts/NunitoSans/NunitoSans-BlackItalic.ttf";
-import NunitoSansExtraBold from "/assets/fonts/NunitoSans/NunitoSans-ExtraBold.ttf";
-import NunitoSansExtraBoldItalic from "/assets/fonts/NunitoSans/NunitoSans-ExtraBoldItalic.ttf";
-import NunitoSansBold from "/assets/fonts/NunitoSans/NunitoSans-Bold.ttf";
-import NunitoSansBoldItalic from "/assets/fonts/NunitoSans/NunitoSans-BoldItalic.ttf";
-import NunitoSansSemiBold from "/assets/fonts/NunitoSans/NunitoSans-SemiBold.ttf";
-import NunitoSansSemiBoldItalic from "/assets/fonts/NunitoSans/NunitoSans-SemiBoldItalic.ttf";
-import NunitoSansRegular from "/assets/fonts/NunitoSans/NunitoSans-Regular.ttf";
-import NunitoSansItalic from "/assets/fonts/NunitoSans/NunitoSans-Italic.ttf";
-import NunitoSansLigth from "/assets/fonts/NunitoSans/NunitoSans-Light.ttf";
-import NunitoSansLigthItalic from "/assets/fonts/NunitoSans/NunitoSans-LightItalic.ttf";
-import NunitoSansExtraLight from "/assets/fonts/NunitoSans/NunitoSans-ExtraLight.ttf";
-import NunitoSansExtraLightItalic from "/assets/fonts/NunitoSans/NunitoSans-ExtraLightItalic.ttf";
+import NunitoSansBlack from "assets/fonts/NunitoSans/NunitoSans-Black.ttf";
+import NunitoSansBlackItalic from "assets/fonts/NunitoSans/NunitoSans-BlackItalic.ttf";
+import NunitoSansExtraBold from "assets/fonts/NunitoSans/NunitoSans-ExtraBold.ttf";
+import NunitoSansExtraBoldItalic from "assets/fonts/NunitoSans/NunitoSans-ExtraBoldItalic.ttf";
+import NunitoSansBold from "assets/fonts/NunitoSans/NunitoSans-Bold.ttf";
+import NunitoSansBoldItalic from "assets/fonts/NunitoSans/NunitoSans-BoldItalic.ttf";
+import NunitoSansSemiBold from "assets/fonts/NunitoSans/NunitoSans-SemiBold.ttf";
+import NunitoSansSemiBoldItalic from "assets/fonts/NunitoSans/NunitoSans-SemiBoldItalic.ttf";
+import NunitoSansRegular from "assets/fonts/NunitoSans/NunitoSans-Regular.ttf";
+import NunitoSansItalic from "assets/fonts/NunitoSans/NunitoSans-Italic.ttf";
+import NunitoSansLigth from "assets/fonts/NunitoSans/NunitoSans-Light.ttf";
+import NunitoSansLigthItalic from "assets/fonts/NunitoSans/NunitoSans-LightItalic.ttf";
+import NunitoSansExtraLight from "assets/fonts/NunitoSans/NunitoSans-ExtraLight.ttf";
+import NunitoSansExtraLightItalic from "assets/fonts/NunitoSans/NunitoSans-ExtraLightItalic.ttf";
 import { colors, font } from "./theme";
 
 const headers = () => {

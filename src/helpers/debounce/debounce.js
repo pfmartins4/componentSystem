@@ -2,7 +2,7 @@ const debounce = fn => {
   // Setup a timer
   var timeout;
   // Return a function to run debounced
-  return function() {
+  return function () {
     // Setup the arguments
     var context = this;
     var args = arguments;
@@ -12,7 +12,7 @@ const debounce = fn => {
     }
 
     // Setup the new requestAnimationFrame()
-    timeout = window.requestAnimationFrame(function() {
+    timeout = window.requestAnimationFrame(function () {
       fn.apply(context, args);
     });
   };

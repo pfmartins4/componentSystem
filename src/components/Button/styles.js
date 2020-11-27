@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { colors, borders, font, paddings, sizeMultiplier } from "/styles/theme";
+import { colors, borders, font, paddings, sizeMultiplier } from "styles/theme";
 import Button from "./Button";
-import Icon from "/components/Icon";
+import Icon from "components/Icon";
 
 const { size: fontSize, family } = font;
 

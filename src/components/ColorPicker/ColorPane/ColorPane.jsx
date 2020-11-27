@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useRef } from "react";
 import Pane, { BlackPane, WhitePane, ThumbNail } from "./styles";
-import debounce from "/helpers/debounce";
+import debounce from "helpers/debounce";
 
 const calculateLighteness = (xPosition, yPosition, container) => {
   const height = container.clientHeight;
@@ -28,7 +28,7 @@ const ColorPane = ({ hue, onChange, className }) => {
   const [yPosition, setYPosition] = useState(0);
 
   const handleMouseDown = useCallback(evt => {
-     evt.preventDefault();
+    evt.preventDefault();
     const [x, y] = getPosition(evt.clientX, evt.clientY);
     setXPosition(x);
     setYPosition(y);

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { borders, colors } from "/styles/theme";
+import { borders, colors } from "styles/theme";
 
 const ColorPane = styled.div.attrs(({ color }) => ({
   style: {

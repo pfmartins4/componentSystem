@@ -6,8 +6,8 @@ import {
   darken,
   hsl2Rgb,
   parseHex,
-} from "/styles/helpers/coloring.js";
-import { colors, borders } from "/styles/theme";
+} from "styles/helpers/coloring.js";
+import { colors, borders } from "styles/theme";
 
 const red = parseHex(hsl2Rgb(0, 100, 50));
 const yellow = parseHex(hsl2Rgb(60, 100, 50));
