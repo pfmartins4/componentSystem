@@ -4,8 +4,8 @@
  * @param Array
  */
 
-const mergeArrays = (...args) => {
-  let merged = [].concat(...args);
+const mergeArrays = (...args: Array<any[]>) => {
+  let merged = ([] as any[]).concat(...args);
   let sanitized = Array.from(new Set(merged));
   return sanitized;
 };
