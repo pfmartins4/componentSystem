@@ -1,126 +1,77 @@
 import mergeObj from "./mergeObj";
 
-const Ojb1 = {
-  colors: {
-    black: {
-      default: "black",
-    },
-    grey: {
-      default: "#707070",
-    },
-    white: {
-      default: "#f5f5f5",
-    },
-    primary: {
-      default: "#edc44a",
-    },
-    secondary: {
-      default: "#e0a905",
-    },
-    tercyary: {
-      default: "tercyary",
-    },
-    success: {
-      default: "#7dba73",
-    },
-    danger: {
-      default: "#c25a46",
-    },
-    warn: {
-      default: "#d68024",
-    },
-  },
-  paddings: {
-    sm: "0.25rem",
-    md: "0.5rem",
-    lg: "0.75rem",
-  },
-  borders: {
-    not: "none",
-    sm: "1px solid",
-    md: "2px solid",
-    lg: "3px solid",
-    radius: {
-      sm: "0.125rem",
-      md: "0.25rem",
-      lg: "0.50rem",
-    },
-  },
-  font: {
-    family: "'NunitoSans', 'Montserrat', 'Open Sans', 'Lato', 'Raleway'",
-    size: {
-      sm: "0.75rem",
-      md: "1rem",
-      lg: "1.5rem",
-    },
-    weight: {
-      light: 300,
-      normal: 400,
-      bold: 700,
-    },
-  },
+const Obj1 = {
+  a: 1,
+  b: 2,
+  c: "dado",
+};
+const Obj2 = {
+  a: 1,
+  b: 3,
+  d: "arroz",
+};
+const Obj3 = {
+  a: 1,
+  b: 3,
+  d: "batata",
 };
 
-const Obj2 = {
-  colors: {
-    black: {
-      default: "#444444",
-    },
-    grey: {
-      default: "#707070",
-    },
-    white: {
-      default: "#f5f5f5",
-    },
-    primary: {
-      default: "#edc44a",
-    },
-    secondary: {
-      default: "#e0a905",
-    },
-    success: {
-      default: "#7dba73",
-    },
-    danger: {
-      default: "#c25a46",
-    },
-    warn: {
-      default: "#d68024",
-    },
-  },
-  paddings: {
-    sm: "0.25rem",
-    md: "0.5rem",
-    lg: "0.75rem",
-  },
-  borders: {
-    not: "none",
-    sm: "1px solid",
-    md: "2px solid",
-    lg: "3px solid",
-    radius: {
-      sm: "0.125rem",
-      md: "0.25rem",
-      lg: "0.50rem",
-    },
-  },
-  font: {
-    family: "'battatinha', 'quando ', 'nasce', 'Lato', 'Raleway'",
-    size: {
-      sm: "0.75rem",
-      md: "1rem",
-      lg: "1.5rem",
-    },
-    weight: {
-      light: 300,
-      normal: 400,
-      bold: 700,
-    },
-  },
+const Obj4 = {
+  a: 1,
+  b: 3,
+  c: "xadrez",
+};
+
+const merged1In2 = {
+  a: 1,
+  b: 2,
+  c: "dado",
+  d: "arroz",
+};
+const merged1In3 = {
+  a: 1,
+  b: 2,
+  c: "dado",
+  d: "batata",
+};
+const merged2In4 = {
+  /* 
+  a: 1,
+  b: 3,
+  d: "arroz",
+
+   a: 1,
+  b: 3,
+  c: "xadrez",
+  */
+  a: 1,
+  b: 3,
+  c: "xadrez",
+  d: "arroz",
+};
+
+const Obj5 = {
+  obj1: Obj1,
+  obj2: Obj2,
+};
+
+const Obj6 = {
+  obj1: Obj3,
+  obj2: Obj4,
+};
+
+const merged5In6 = {
+  obj1: merged1In3,
+  obj2: merged2In4,
 };
 
 describe("Object merging", () => {
   test("simple merge", () => {
-    mergeObj(Obj2, Ojb1);
+    expect(mergeObj(Obj2, Obj1)).toEqual(merged1In2);
+    expect(mergeObj(Obj3, Obj1)).toEqual(merged1In3);
+    expect(mergeObj(Obj4, Obj2)).toEqual(merged2In4);
+  });
+  test("deep merge", () => {
+    expect(mergeObj(Obj6, Obj5)).toEqual(merged5In6);
   });
 });
