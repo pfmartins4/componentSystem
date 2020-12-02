@@ -5,6 +5,9 @@
   },
   "baseUrl": "./",
   "paths": {
-    "/": ["./src/*"]
+    "assets/": ["./src/assets/**"],
+    "helpers/": ["./src/helpers/**"],
+    "components/": ["./src/components/**"],
+    "styles/": ["./src/styles/**"]
   }
 }

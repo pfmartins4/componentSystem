@@ -1,4 +1,4 @@
-const rgb2Hsl = (_r, _g, _b, _a) => {
+const rgb2hsl = (_r, _g, _b, _a) => {
   const red = Math.min(_r / 255, 1);
   const green = Math.min(_g / 255, 1);
   const blue = Math.min(_b / 255, 1);
@@ -125,44 +125,44 @@ const lighten = (amount, color) => {
   const colorType = checkColorType(color);
   let hue, saturation, lightness;
   let red, green, blue;
-  let returnable;
+  let lightened;
   if (colorType === "rgb" || colorType === "hex") {
     [red, green, blue] = parseRGBArray(color);
-    [hue, saturation, lightness] = rgb2Hsl(red, green, blue);
+    [hue, saturation, lightness] = rgb2hsl(red, green, blue);
     lightness = Math.min(lightness + amount, 100);
     [red, green, blue] = hsl2Rgb(hue, saturation, lightness);
-    returnable =
+    lightened =
       colorType === "rgb"
         ? parseRgb([red, green, blue])
         : parseHex([red, green, blue]);
   } else {
     [hue, saturation, lightness] = parseHSLArray(color);
     lightness = Math.min(lightness + amount, 100);
-    returnable = parseHsl([hue, saturation, lightness]);
+    lightened = parseHsl([hue, saturation, lightness]);
   }
-  return returnable;
+  return lightened;
 };
 
 const darken = (amount, color) => {
   const colorType = checkColorType(color);
   let hue, saturation, lightness;
   let red, green, blue;
-  let returnable;
+  let darkened;
   if (colorType === "rgb" || colorType === "hex") {
     [red, green, blue] = parseRGBArray(color);
-    [hue, saturation, lightness] = rgb2Hsl(red, green, blue);
+    [hue, saturation, lightness] = rgb2hsl(red, green, blue);
     lightness = Math.max(lightness - amount, 0);
     [red, green, blue] = hsl2Rgb(hue, saturation, lightness);
-    returnable =
+    darkened =
       colorType === "rgb"
         ? parseRgb([red, green, blue])
         : parseHex([red, green, blue]);
   } else {
     [hue, saturation, lightness] = parseHSLArray(color);
     lightness = Math.max(lightness - amount, 0);
-    returnable = parseHsl([hue, saturation, lightness]);
+    darkened = parseHsl([hue, saturation, lightness]);
   }
-  return returnable;
+  return darkened;
 };
 
 const parseHsl = ([hue, saturation, lightness, alpha]) =>
@@ -182,7 +182,7 @@ const parseHex = ([red, blue, green, alpha]) =>
     alpha ? (alpha * 255).toString(16).padEnd(2, "0") : ""
   }`;
 
-export default rgb2Hsl;
+export default rgb2hsl;
 export {
   parseRGBArray,
   parseHSLArray,

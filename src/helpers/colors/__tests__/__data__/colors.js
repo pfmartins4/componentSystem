@@ -1,6 +1,4 @@
-import ColorSpaces = ColorsSpaces.ColorSpaces;
-
-const colors: Array<ColorSpaces> = [
+const colors = () => [
   {
     RGBA: {
       array: [50, 167, 169, 1],

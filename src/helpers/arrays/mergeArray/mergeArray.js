@@ -1,11 +1,12 @@
 /**
  * function recevies N arrays e merge
  * them into a single array without any repetition
- * @param Array
+ * PS: No deep merge
+ * @param Array of Arrays
  */
 
-const mergeArrays = (...args: Array<any[]>) => {
-  let merged = ([] as any[]).concat(...args);
+const mergeArrays = (...args) => {
+  let merged = [].concat(...args);
   let sanitized = Array.from(new Set(merged));
   return sanitized;
 };

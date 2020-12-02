@@ -1,4 +1,4 @@
-import mergeObj from "./mergeObj";
+import mergeObj from "../mergeObj";
 
 const Obj1 = {
   a: 1,
