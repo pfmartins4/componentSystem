@@ -15,12 +15,11 @@
     "isolatedModules": true,
     "baseUrl": "./src/",
     "paths": {
-      "asstes/*": ["assets/*"],
-      "components/*": ["components/*"],
-      "helpers/*": ["helpers/*"],
-      "styles/*": ["stylest/*"]
+      "asstes/**": ["assets/**"],
+      "components/**": ["components/**"],
+      "helpers/**": ["helpers/**"],
+      "styles/**": ["stylest/**"]
     }
   },
-
   "include": ["./src/"]
 }

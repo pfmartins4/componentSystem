@@ -13,7 +13,6 @@ module.exports = {
     rules: [
       {
         test: /^(?!.*.test.(t|j)s$).*.(t|j)sx?/,
-        exclude: /node_modules/,
         use: ["babel-loader", "ts-loader"],
         exclude: [/node_modules/],
       },
