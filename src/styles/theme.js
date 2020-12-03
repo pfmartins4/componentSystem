@@ -1,5 +1,7 @@
+/* eslint-disable import/no-mutable-exports */
 import { lighten, darken } from "./helpers/coloring";
-import defaultTheme from "./defaultTheme.json";
+import defaultTheme from "./defaultTheme.js";
+
 const context = require.context("../../", false, /\.json$/, "sync");
 
 let colors;
@@ -10,15 +12,12 @@ let font;
 const generateJsonTheme = () => {
   let themeOverWrite;
   for (const fileName of context.keys()) {
-    if (fileName === "./theme.json") {
+    if (fileName === "./theme.js") {
       themeOverWrite = context(fileName);
     }
   }
-  colors 
-    if(themeOverWrite?.colors){
-
-    }
-    ? 
+  colors = !themeOverWrite?.colors
+    ? defaultTheme.colors
     : Object.keys(defaultTheme.colors).reduce(
         (acc, color) => ({
           ...acc,
@@ -65,22 +64,21 @@ const generateJsonTheme = () => {
               themeOverWrite.borders[borderSize] ||
               defaultTheme.borders[borderSize],
           };
-        } else {
-          return !themeOverWrite.borders.radius
-            ? { ...acc, radius: defaultTheme.borders.radius }
-            : {
-                ...acc,
-                radius: Object.keys(defaultTheme.borders.radius).reduce(
-                  (acc, radiusSize) => ({
-                    ...acc,
-                    [radiusSize]:
-                      themeOverWrite.borders.radius[radiusSize] ||
-                      defaultTheme.borders.radius[radiusSize],
-                  }),
-                  {}
-                ),
-              };
         }
+        return !themeOverWrite.borders.radius
+          ? { ...acc, radius: defaultTheme.borders.radius }
+          : {
+              ...acc,
+              radius: Object.keys(defaultTheme.borders.radius).reduce(
+                (acc, radiusSize) => ({
+                  ...acc,
+                  [radiusSize]:
+                    themeOverWrite.borders.radius[radiusSize] ||
+                    defaultTheme.borders.radius[radiusSize],
+                }),
+                {}
+              ),
+            };
       }, {});
   font = !(themeOverWrite && themeOverWrite.font)
     ? defaultTheme.font
@@ -90,22 +88,21 @@ const generateJsonTheme = () => {
             ...acc,
             [key]: themeOverWrite.font[key] || defaultTheme.font[key],
           };
-        } else {
-          return !themeOverWrite.font[key]
-            ? { ...acc, radius: defaultTheme.font[key] }
-            : {
-                ...acc,
-                radius: Object.keys(defaultTheme.font[innerKey]).reduce(
-                  (acc, innerKey) => ({
-                    ...acc,
-                    [innerKey]:
-                      themeOverWrite.font.radius[innerKey] ||
-                      defaultTheme.font.radius[innerKey],
-                  }),
-                  {}
-                ),
-              };
         }
+        return !themeOverWrite.font[key]
+          ? { ...acc, radius: defaultTheme.font[key] }
+          : {
+              ...acc,
+              radius: Object.keys(defaultTheme.font[innerKey]).reduce(
+                (acc, innerKey) => ({
+                  ...acc,
+                  [innerKey]:
+                    themeOverWrite.font.radius[innerKey] ||
+                    defaultTheme.font.radius[innerKey],
+                }),
+                {}
+              ),
+            };
       }, {});
   return { colors, borders, paddings };
 };

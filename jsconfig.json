@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6"
-  },
-  "baseUrl": "./",
-  "paths": {
-    "assets/": ["./src/assets/**"],
-    "helpers/": ["./src/helpers/**"],
-    "components/": ["./src/components/**"],
-    "styles/": ["./src/styles/**"]
+    "baseUrl": "./src",
+    "module": "es2015",
+    "target": "es6",
+    "paths": {
+      "assets/*": ["/assets/*"],
+      "helpers/*": ["/helpers/*"],
+      "components/*": ["/components/*"],
+      "styles/*": ["/styles/*"]
+    }
   }
 }

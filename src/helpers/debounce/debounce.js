@@ -1,3 +1,5 @@
+/* eslint-disable prefer-rest-params */
+/* eslint-disable no-var */
 const debounce = fn => {
   // Setup a timer
   var timeout;

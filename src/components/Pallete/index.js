@@ -9,16 +9,16 @@ const Pallete = () => (
     <h1>Pallete</h1>
     {background.map(bgType => (
       <>
-        {Object.entries(colors).map(([type, colors]) => (
+        {Object.entries(colors).map(([type, colorsS]) => (
           <>
             {" "}
             <h1>{type}</h1>
             <Container type={bgType}>
-              {Object.keys(colors).map(color => (
+              {Object.keys(colorsS).map(color => (
                 <ColorWraper>
                   {color}
-                  <Color key={colors[color]} color={colors[color]} />
-                  {colors[color]}
+                  <Color key={colorsS[color]} color={colorsS[color]} />
+                  {colorsS[color]}
                 </ColorWraper>
               ))}
             </Container>

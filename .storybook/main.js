@@ -1,17 +1,13 @@
+const commonPaths = require("../config/commonPaths");
+
 module.exports = {
-  stories: [
-    "../src/components/**/*.stories.(js|mdx)",
-    "../src/styles/**/*.stories.(js|mdx)",
-  ],
-  addons: [
-    "@storybook/addon-essentials",
-    /*  {
-      name: '@storybook/addon-docs/preset',
-      options: {
-        configureJSX: true,
-        babelOptions: {},
-        sourceLoaderOptions: null,
-      },
-    }, */
-  ],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  webpackFinal: async config => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      ...commonPaths.resolvedAlias,
+    };
+    return config;
+  },
 };

@@ -2,11 +2,12 @@ const rgb2hsl = (_r, _g, _b, _a = 1) => {
   const red = Math.min(_r / 255, 1);
   const green = Math.min(_g / 255, 1);
   const blue = Math.min(_b / 255, 1);
-  const alpha = _a ? _a : 1;
+  const alpha = _a;
   const value = Math.max(red, green, blue);
   const minimum = Math.min(red, green, blue);
   const chroma = value - minimum;
   let lightness = (value + minimum) / 2;
+
   let hue = 0;
   let saturation = 0;
 

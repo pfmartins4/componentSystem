@@ -1,23 +1,25 @@
-const parseRGB = color => {
+const parseRgb = color => {
   const isRgb = color.match(/(rgb)/);
-  const isHex = color.match(/\#/);
   let rgbValues;
   if (isRgb) {
     rgbValues = color
       .replace(/(rgba|rgb)|\(|\)/gm, "")
       .split(",")
       .map(val => parseInt(val.trim()));
-    return rgbValues;
-  }
-  if (isHex) {
+  } else {
     const hashless = color.replace("#", "");
-    const length = color.length;
+    const { length } = color;
 
-    if (length / 3 === 1 || length / 4 === 1) {
+    if (length < 5) {
       rgbValues = hashless.match(/.{1}/g).map(val => parseInt(val, 16));
     } else {
       rgbValues = hashless.match(/.{2}/g).map(val => parseInt(val, 16));
     }
-    return rgbValues;
   }
+  if (rgbValues.length === 3) {
+    rgbValues.push(1);
+  }
+  return rgbValues;
 };
+
+export default parseRgb;

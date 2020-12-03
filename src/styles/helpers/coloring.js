@@ -1,8 +1,9 @@
+/* eslint-disable no-use-before-define */
 const rgb2hsl = (_r, _g, _b, _a) => {
   const red = Math.min(_r / 255, 1);
   const green = Math.min(_g / 255, 1);
   const blue = Math.min(_b / 255, 1);
-  const alpha = _a ? _a : 1;
+  const alpha = _a || 1;
   const value = Math.max(red, green, blue);
   const minimum = Math.min(red, green, blue);
   const chroma = value - minimum;
@@ -25,6 +26,8 @@ const rgb2hsl = (_r, _g, _b, _a) => {
         hue = 60 * (4 + (red - green) / chroma);
         break;
       }
+      default:
+        break;
     }
   }
   if (chroma === 0) {
@@ -47,8 +50,11 @@ const hsl2Rgb = (_hue, _saturation, _lightness, _alpha) => {
   const chroma = saturation * (1 - Math.abs(2 * lightness - 1));
   const median = chroma * (1 - Math.abs((hue % 2) - 1));
   const matchLight = lightness - chroma / 2;
-  const alpha = _alpha ? _alpha : 1;
-  let red, green, blue;
+  const alpha = _alpha || 1;
+  let red;
+  let green;
+  let blue;
+  // eslint-disable-next-line no-multi-assign
   red = green = blue = 0;
   if (lightness !== 0) {
     if (hue >= 0 && hue <= 1) {
@@ -102,7 +108,7 @@ const parseRGBArray = color => {
   }
   if (isHex) {
     const hashless = color.replace("#", "");
-    const length = color.length;
+    const { length } = color;
 
     if (length / 3 === 1 || length / 4 === 1) {
       rgbValues = hashless.match(/.{1}/g).map(val => parseInt(val, 16));
@@ -113,18 +119,20 @@ const parseRGBArray = color => {
   }
 };
 
-const parseHSLArray = color => {
-  let hslValues = color
+const parseHSLArray = color =>
+  color
     .replace(/(hsla|hsl)|\(|\)|%/gm, "")
     .split(",")
     .map(val => parseInt(val.trim()));
-  return hslValues;
-};
 
 const lighten = (amount, color) => {
   const colorType = checkColorType(color);
-  let hue, saturation, lightness;
-  let red, green, blue;
+  let hue;
+  let saturation;
+  let lightness;
+  let red;
+  let green;
+  let blue;
   let lightened;
   if (colorType === "rgb" || colorType === "hex") {
     [red, green, blue] = parseRGBArray(color);
@@ -145,8 +153,12 @@ const lighten = (amount, color) => {
 
 const darken = (amount, color) => {
   const colorType = checkColorType(color);
-  let hue, saturation, lightness;
-  let red, green, blue;
+  let hue;
+  let saturation;
+  let lightness;
+  let red;
+  let green;
+  let blue;
   let darkened;
   if (colorType === "rgb" || colorType === "hex") {
     [red, green, blue] = parseRGBArray(color);

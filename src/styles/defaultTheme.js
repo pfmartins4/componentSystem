@@ -1,0 +1,59 @@
+const defaultTheme = {
+  colors: {
+    black: {
+      default: "#444444",
+    },
+    grey: {
+      default: "#707070",
+    },
+    white: {
+      default: "#f5f5f5",
+    },
+    primary: {
+      default: "#edc44a",
+    },
+    secondary: {
+      default: "#e0a905",
+    },
+    success: {
+      default: "#7dba73",
+    },
+    danger: {
+      default: "#c25a46",
+    },
+    warn: {
+      default: "#d68024",
+    },
+  },
+  paddings: {
+    sm: "0.25rem",
+    md: "0.5rem",
+    lg: "0.75rem",
+  },
+  borders: {
+    not: "none",
+    sm: "1px solid",
+    md: "2px solid",
+    lg: "3px solid",
+    radius: {
+      sm: "0.125rem",
+      md: "0.25rem",
+      lg: "0.50rem",
+    },
+  },
+  font: {
+    family: "'NunitoSans', 'Montserrat', 'Open Sans', 'Lato', 'Raleway'",
+    size: {
+      sm: "0.75rem",
+      md: "1rem",
+      lg: "1.5rem",
+    },
+    weight: {
+      light: 300,
+      normal: 400,
+      bold: 700,
+    },
+  },
+};
+
+export default defaultTheme;

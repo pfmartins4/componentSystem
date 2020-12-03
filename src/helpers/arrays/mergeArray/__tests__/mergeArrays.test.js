@@ -1,4 +1,4 @@
-import mergeArrays from "./mergeArray";
+import mergeArrays from "../mergeArray";
 
 describe("mergeArrays", () => {
   test("simple merge", () => {

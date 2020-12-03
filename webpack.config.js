@@ -1,52 +1,10 @@
-const path = require("path");
+const { merge } = require("webpack-merge");
+const commonConfig = require("./config/webpack.common");
 
-function srcPath(subdir) {
-  return path.join(__dirname, "src", subdir);
-}
-
-module.exports = {
-  entry: "./src/app",
-  output: {
-    filename: "bundle.js",
-  },
-  module: {
-    rules: [
-      {
-        test: /^*.test\.js$.*\.jsx?/,
-        use: ["babel-loader"],
-        exclude: [/node_modules/],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              limit: 10000,
-              mimetype: "application/font-woff",
-            },
-          },
-        ],
-      },
-      {
-        test: /.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.json$/,
-        loader: "json-loader",
-      },
-    ],
-  },
-  resolve: {
-    extensions: ["*", ".js", ".jsx", ".mdx"],
-    alias: {
-      assets: srcPath("assets"),
-      components: srcPath("components"),
-      helpers: srcPath("helpers"),
-      styles: srcPath("styles"),
-    },
-  },
-  devtool: "source-map",
+module.exports = env => {
+  const envFile = env.dev ? "dev" : "prod";
+  const envConfig = require(`./config/webpack.${envFile}.js`); // eslint-disable-line global-require
+  const mergedConfig = merge(commonConfig, envConfig);
+  console.log(mergedConfig);
+  return mergedConfig;
 };

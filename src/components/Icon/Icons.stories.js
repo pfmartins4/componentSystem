@@ -1,18 +1,18 @@
 import React from "react";
 import Icon from "./Icon";
 import { iconNames } from "./index";
-import {
+/* import {
   withKnobs,
   text,
   boolean,
   number,
   select,
-} from "@storybook/addon-knobs";
+} from "@storybook/addon-knobs"; */
 
 export default {
   component: Icon,
   title: "Desing System/Icon",
-  decorators: [withKnobs],
+  /* decorators: [withKnobs], */
 };
 
 export const allIcons = () => (
@@ -47,8 +47,8 @@ export const allIcons = () => (
 );
 
 export const iconWithKnobs = () => {
-  const groupId = "props";
-  const color = select(
+  /* const groupId = "props"; */
+  /* const color = select(
     "color",
     [
       "black",
@@ -64,5 +64,5 @@ export const iconWithKnobs = () => {
     groupId
   );
   const icon = select("icon name", iconNames, "home", groupId);
-  return <Icon color={color}>{icon}</Icon>;
+  return <Icon color={color}>{icon}</Icon>; */
 };

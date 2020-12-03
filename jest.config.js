@@ -11,9 +11,5 @@ module.exports = {
     "^helpers/(.*)$": ["<rootDir>/src/helpers/$1"],
     "^styles/(.*)$": ["<rootDir>/src/styles/$1"],
   },
-  testEnvironment: "jest-environment-node",
-  transform: {
-    "\\.test.jsx?$": "babel-jest",
-  },
   verbose: true,
 };

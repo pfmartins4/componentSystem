@@ -1,6 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import { paddings, borders, colors } from "styles/theme";
+import { paddings, borders, colors } from "../../styles/theme";
 
 const { black, grey, darkGrey, white } = colors;
 

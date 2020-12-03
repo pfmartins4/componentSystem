@@ -1,2 +1,1 @@
-import rgb2Hsl from "./rgb2hsl";
-export { rgb2Hsl };
+export { default } from "./rgb2hsl";
