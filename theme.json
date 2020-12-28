@@ -1,0 +1,19 @@
+{
+  "colors": {
+    "white": {
+      "default": "#E5E5E5"
+    },
+    "primary": {
+      "default": "#DBCBBD"
+    },
+    "secondary": {
+      "default": "#C87941"
+    },
+    "terciary": {
+      "default": "#4A2510"
+    },
+    "black": {
+      "default": "#292929"
+    }
+  }
+}

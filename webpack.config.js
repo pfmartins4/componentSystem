@@ -5,6 +5,5 @@ module.exports = env => {
   const envFile = env.dev ? "dev" : "prod";
   const envConfig = require(`./config/webpack.${envFile}.js`); // eslint-disable-line global-require
   const mergedConfig = merge(commonConfig, envConfig);
-  console.log(mergedConfig);
   return mergedConfig;
 };

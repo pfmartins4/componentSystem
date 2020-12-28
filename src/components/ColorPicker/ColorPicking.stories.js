@@ -1,4 +1,3 @@
-import React from "react";
 import HueBar from "./HueBar";
 import ColorPane from "./ColorPane";
 import ColorPicker from "./index";

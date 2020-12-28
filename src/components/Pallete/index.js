@@ -1,4 +1,3 @@
-import React from "react";
 import { colors } from "styles/theme";
 import Color, { Container, ColorWraper, Wrapper } from "./styles";
 

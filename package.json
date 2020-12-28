@@ -64,6 +64,10 @@
     "webpack-merge": "^5.4.0"
   },
   "prettier": {
+    "files": [
+      "*.js",
+      "*.jsx"
+    ],
     "trailingComma": "es5",
     "printWidth": 80,
     "tabWidth": 2,

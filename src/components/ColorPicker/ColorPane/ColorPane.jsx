@@ -61,7 +61,6 @@ const ColorPane = ({ hue, onChange, className }) => {
   const getPosition = useCallback((absoluteX, absoluteY) => {
     const { width, height, left, top } =
       ref && ref.current && ref.current.getBoundingClientRect();
-    console.log(width, height, top, left);
     let relativeX = ((absoluteX - left) / width) * 100;
     relativeX = relativeX < 0 ? 0 : relativeX > 100 ? 100 : relativeX;
     let relativeY = ((absoluteY - top) / height) * 100;

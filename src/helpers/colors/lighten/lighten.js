@@ -32,3 +32,5 @@ const lighten = (amount, color) => {
   }
   return lightened;
 };
+
+export default lighten;

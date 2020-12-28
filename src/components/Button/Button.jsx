@@ -1,7 +1,9 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import useFocusWithin from "styles/helpers/focusWithin";
 import PropTypes from "prop-types";
 import Icon from "components/Icon";
+import { colors } from "styles/theme";
+
 
 /**
  *
@@ -79,7 +81,7 @@ Button.propTypes = {
    *  Defines the color of text and backgroudn
    *  acording to the type
    */
-  color: PropTypes.oneOf(["primary", "secondary", "success", "warn", "danger"]),
+  color: PropTypes.oneOf(["black", "grey", "white","primary", "secondary", "terciary", "success", "warn", "danger"]),
   href: PropTypes.string,
   /**
    * Add a icon before the label

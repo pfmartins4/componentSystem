@@ -121,7 +121,7 @@ const GlobalStyle = createGlobalStyle`
             url(${NunitoSansExtraLightItalic}) format("truetype");
     }
     html, body, div, span, p, button, a,
-    input, label,
+    input, label, input::placeholder
     ${headers()}
     {
         background: ${colors.white.default};
