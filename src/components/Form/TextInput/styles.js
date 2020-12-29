@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { font, borders, colors, paddings, sizeMultiplier } from "styles/theme";
-import TextInput, { Label, Input, Wrapper, ErrorMessage } from "./TextInput";
-
-const StyledTextInput = styled(TextInput)``;
+import {
+  Label,
+  Input,
+  Wrapper,
+  ErrorMessage,
+} from "components/Form/BasicInputElements";
 
 const StyledInput = styled(Input)`
   background: ${colors.white.light};
@@ -11,9 +14,7 @@ const StyledInput = styled(Input)`
   box-sizing: border-box;
   border: ${borders.sm} transparent;
   padding: ${paddings.md};
-  bottom: ${({ labelAsPlaceholder }) => (labelAsPlaceholder ? 0 : "unset")};
-  position: ${({ labelAsPlaceholder }) =>
-    labelAsPlaceholder ? "absolute" : "unset"};
+
   &:focus {
     outline: none;
   }
@@ -51,7 +52,6 @@ const StyledWrapper = styled(Wrapper)`
   width: 100%;
   background-position: center;
   box-sizing: border-box;
-  height: 50px;
 
   position: relative;
   &:after {
@@ -101,5 +101,4 @@ Input.defaultProps = {
   placeholder: "",
   showLabel: true,
 };
-export default StyledTextInput;
 export { StyledInput, StyledLabel, StyledWrapper, StyledErrorMessage };

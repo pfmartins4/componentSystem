@@ -1,9 +1,8 @@
 import { useRef } from "react";
-import useFocusWithin from "styles/helpers/focusWithin";
+import useFocusVisible from "helpers/useFocusVisible";
 import PropTypes from "prop-types";
 import Icon from "components/Icon";
 import { colors } from "styles/theme";
-
 
 /**
  *
@@ -23,11 +22,12 @@ const Button = ({
   size,
 }) => {
   const ref = useRef(null);
-  const hasFocusWithin = useFocusWithin(ref);
+  const hasFocusVisible = useFocusVisible(ref);
   return href ? (
     <a
       href={href}
-      className={`${className} ${hasFocusWithin ? "focusWithin" : ""}`}
+      className={`${className} ${hasFocusVisible ? "focusVisible" : ""}`}
+      ref={ref}
     >
       {icon && (
         <Icon size={size} color={color}>
@@ -38,7 +38,7 @@ const Button = ({
     </a>
   ) : (
     <button
-      className={`${className} ${hasFocusWithin ? "focusWithin" : ""}`}
+      className={`${className} ${hasFocusVisible ? "focusVisible" : ""}`}
       ref={ref}
       onClick={onClick}
     >
@@ -81,7 +81,17 @@ Button.propTypes = {
    *  Defines the color of text and backgroudn
    *  acording to the type
    */
-  color: PropTypes.oneOf(["black", "grey", "white","primary", "secondary", "terciary", "success", "warn", "danger"]),
+  color: PropTypes.oneOf([
+    "black",
+    "grey",
+    "white",
+    "primary",
+    "secondary",
+    "terciary",
+    "success",
+    "warn",
+    "danger",
+  ]),
   href: PropTypes.string,
   /**
    * Add a icon before the label

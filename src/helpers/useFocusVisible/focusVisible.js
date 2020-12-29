@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 
-const useFocusWithin = ref => {
+const useFocusVisible = ref => {
   const [focused, setFocused] = useState(false);
   const [hadMouseEvent, setMouseEvent] = useState(false);
   const [hadKeyboarEvent, setKeyboardEvent] = useState(false);
-  const [hasFocusWithin, setFocusWithin] = useState(false);
+  const [hasFocusVisible, setFocusVisible] = useState(false);
   useEffect(() => {
     if (ref && ref.current) {
       const focusHandler = ref.current.onfocus;
@@ -56,12 +56,12 @@ const useFocusWithin = ref => {
   }, []);
   useEffect(() => {
     if (focused && !hadMouseEvent && hadKeyboarEvent) {
-      setFocusWithin(true);
+      setFocusVisible(true);
     } else {
-      setFocusWithin(false);
+      setFocusVisible(false);
     }
   }, [focused, hadMouseEvent, hadKeyboarEvent]);
 
-  return hasFocusWithin;
+  return hasFocusVisible;
 };
-export default useFocusWithin;
+export default useFocusVisible;

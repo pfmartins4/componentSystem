@@ -2,61 +2,19 @@ import PropTypes from "prop-types";
 import idGen from "helpers/idGen/idGen";
 import { forwardRef, useState } from "react";
 import {
-  StyledErrorMessage,
-  StyledInput,
-  StyledLabel,
-  StyledWrapper,
+  StyledErrorMessage as ErrorMessage,
+  StyledInput as Input,
+  StyledLabel as Label,
+  StyledWrapper as Wrapper,
 } from "./styles";
-
-const Input = forwardRef(function Input(
-  {
-    className,
-    color,
-    id,
-    label,
-    labelAsPlaceholder,
-    name,
-    onChange,
-    placeholder,
-    type,
-  },
-  ref
-) {
-  return (
-    <input
-      className={className}
-      id={id}
-      aria-label={label}
-      onChange={onChange}
-      placeholder={placeholder}
-      type={type}
-      name={name}
-      ref={ref}
-    />
-  );
-});
-
-const Label = ({ children, className, htmlFor, labelAsPlaceholder }) => (
-  <label className={className} htmlFor={htmlFor}>
-    {children}
-  </label>
-);
-
-const Wrapper = ({ children, className, color, labelAsPlaceholder }) => (
-  <div className={className}>{children}</div>
-);
-
-const ErrorMessage = ({ className, message }) => (
-  <div className={className}>{message}</div>
-);
 
 const TextInput = forwardRef(function TextInput(
   {
     className,
     color,
+    label,
     errorMessage,
     id,
-    label,
     labelAsPlaceholder,
     name,
     onChange,
@@ -77,39 +35,41 @@ const TextInput = forwardRef(function TextInput(
     onChange(evt);
   };
   return (
-    <StyledWrapper
-      color={color}
-      className={className}
-      labelAsPlaceholder={labelAsPlaceholder}
-    >
-      {showLabel && (
-        <StyledLabel
-          htmlFor={id || randomId}
-          labelAsPlaceholder={labelAsPlaceholder}
-          suspended={suspendedLabel}
-          data-testid="textIpuntLabel"
-        >
-          {label}
-        </StyledLabel>
-      )}
-      <StyledInput
-        aria-label={labelAsPlaceholder && label}
+    <>
+      <Wrapper
         color={color}
-        id={id || randomId}
+        className={className}
         labelAsPlaceholder={labelAsPlaceholder}
-        name={name}
-        onChange={handleChange}
-        placeholder={placeholder}
-        ref={ref}
-        data-testid="textIpunt"
-      />
-      {errorMessage && <StyledErrorMessage message={errorMessage} />}
-    </StyledWrapper>
+      >
+        {showLabel && (
+          <Label
+            htmlFor={id || randomId}
+            labelAsPlaceholder={labelAsPlaceholder}
+            suspended={suspendedLabel}
+            data-testid="textIpuntLabel"
+          >
+            {label}
+          </Label>
+        )}
+        <Input
+          aria-label={labelAsPlaceholder && label}
+          color={color}
+          id={id || randomId}
+          labelAsPlaceholder={labelAsPlaceholder}
+          name={name}
+          onChange={handleChange}
+          placeholder={placeholder}
+          ref={ref}
+          data-testid="textIpunt"
+        />
+      </Wrapper>
+      {errorMessage && <ErrorMessage message={errorMessage} />}
+    </>
   );
 });
 
 export default TextInput;
-export { Input, Label, Wrapper, ErrorMessage };
+
 TextInput.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf([

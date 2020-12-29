@@ -54,7 +54,7 @@ const Styles = styled(Button)`
   &:focus {
     outline: none;
   }
-  &.focusWithin,
+  &.focusVisible,
   &:hover {
     background: ${({ color, type }) =>
       type === "default"
