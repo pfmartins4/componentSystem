@@ -19,11 +19,9 @@ const Radio = forwardRef(function Radio(
     color,
     errorMessage,
     id,
-    isButton,
     children,
     name,
     onChange,
-    outlined,
     value,
     type,
   },
@@ -57,8 +55,6 @@ const Radio = forwardRef(function Radio(
         className={hasFocusVisible ? "focusVisible" : ""}
         color={color}
         htmlFor={innerId}
-        isButton={isButton}
-        outlined={outlined}
         type={type}
       >
         <Checker
@@ -66,7 +62,6 @@ const Radio = forwardRef(function Radio(
           aria-hidden={true}
           checked={checked}
           type={type}
-          isButton={isButton}
           className={hasFocusVisible ? "focusVisible" : ""}
         />
         <Input
