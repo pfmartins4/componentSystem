@@ -18,21 +18,38 @@ const StyledLabel = styled(Label)`
   justify-content: flex-start;
   gap: ${paddings.lg};
   color: ${colors.black.light};
-  border: ${({ outlined }) => {
-    if (outlined) {
+  border: ${({ type, checked, color }) => {
+    if (type === "outlined") {
       return `${borders.sm} ${colors.white.dark}`;
+    }
+    if (type === "button" && !checked) {
+      return `${borders.sm} ${colors[color].default}`;
+    }
+    if (type === "button" && checked) {
+      return `${borders.sm} transparent`;
     }
     return "";
   }};
-  border-radius: ${({ outlined }) => (outlined ? borders.radius.md : "")};
+  border-radius: ${({ type, borderRadius }) =>
+    type === "outlined" || type === "button"
+      ? borders.radius[borderRadius]
+      : ""};
   box-sizing: border-box;
   font-family: ${font.family};
-  padding: ${({ outlined }) => (outlined ? paddings.md : "")};
-
+  padding: ${({ type }) =>
+    type === "outlined" || type === "button" ? paddings.md : ""};
+  background-color: ${({ checked, color, type }) => {
+    if (type === "button" && checked) {
+      return colors[color].default;
+    }
+    return "";
+  }};
   &:hover,
   &.focusVisible {
-    box-shadow: ${({ outlined }) =>
-      outlined ? `0px 0px 1px ${colors.black.default}` : ""};
+    box-shadow: ${({ type }) =>
+      type === "outlined" || type === "button"
+        ? `0px 0px 1px ${colors.black.default}`
+        : ""};
   }
 `;
 
@@ -41,11 +58,11 @@ const Checker = ({ checked, color, className }) => (
 );
 const StyledChecker = styled(Checker)`
   border: ${({ color }) => `${borders.md} ${colors[color].default}`};
+  display: ${({ type }) => (type === "button" ? "none" : "initial")};
   border-radius: 50%;
   box-sizing: border-box;
   content: " ";
   height: ${sizeMultiplier(1.25, paddings.lg)};
-
   position: relative;
   top: calc(
     50% - ${sizeMultiplier(0.63, paddings.lg)}
@@ -62,10 +79,11 @@ const StyledChecker = styled(Checker)`
     position: absolute;
     right: ${({ checked }) => (checked ? "2px" : 0)};
     top: ${({ checked }) => (checked ? "2px" : 0)};
-    transition: background 0.3s, bottom 0.3s 0.4s ease-out,
+    transition: background-color 0.3s, bottom 0.3s 0.4s ease-out,
       left 0.3s 0.4s ease-out, right 0.3s 0.4s ease-out, top 0.3s 0.4s ease-out;
   }
-  ${StyledLabel}:hover & {
+  ${StyledLabel}:hover &, 
+  .focusVisible {
     border-color: ${({ color }) => colors[color].dark};
     &::before {
       background-color: ${({ color, checked }) =>

@@ -11,9 +11,12 @@ const Styles = styled(Button)`
 
   background-position: center;
 
-  border: ${borders.sm}
-    ${({ color, type }) =>
-      type === "outlined" ? colors[color]["default"] : "transparent"};
+  border: ${({ color, type }) => {
+    if (type === "outlined") {
+      return `${borders.sm} ${colors[color]["default"]}`;
+    }
+    return "transparent";
+  }};
 
   border-radius: ${({ borderRadius }) =>
     borderRadius === "rounded"

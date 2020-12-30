@@ -1,7 +1,7 @@
 import TextInput from "./";
 export default {
   component: TextInput,
-  title: "Desing System/Text Input",
+  title: "Desing System/Form/Text Input",
   argTypes: {
     label: {
       defaultValue: "Label",

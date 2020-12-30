@@ -5,55 +5,73 @@ import {
   StyledWrapper as Wrapper,
   StyledErrorMessage as ErrorMessage,
 } from "./styles";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import idGen from "helpers/idGen/idGen";
 
 import PropTypes from "prop-types";
 import useMergeRefs from "helpers/useMergeRefs/index";
 import useFocusVisible from "helpers/useFocusVisible";
 
-const RadioButton = forwardRef(function RadioButton(
+const Radio = forwardRef(function Radio(
   {
+    borderRadius,
     className,
     color,
     errorMessage,
     id,
+    isButton,
     children,
     name,
     onChange,
-    value,
     outlined,
+    value,
+    type,
   },
   ref
 ) {
   const innerRef = useRef();
   const mergedRefs = useMergeRefs(innerRef, ref);
   const hasFocusVisible = useFocusVisible(mergedRefs);
+
   const [checked, setChecked] = useState(false);
+  const [innerId, setInnerId] = useState(null);
+
   const handleChange = evt => {
     evt.preventDefault();
-    console.log(evt.target.checked);
     setChecked(evt.target.checked);
     onChange(evt);
   };
-  const randomId = idGen();
+
+  useEffect(() => {
+    if (id) {
+      setInnerId(id);
+      return;
+    }
+    setInnerId(idGen());
+  }, []);
   return (
     <Wrapper className={className}>
       <Label
-        htmlFor={id || randomId}
-        outlined={outlined}
+        borderRadius={borderRadius}
+        checked={checked}
         className={hasFocusVisible ? "focusVisible" : ""}
         color={color}
+        htmlFor={innerId}
+        isButton={isButton}
+        outlined={outlined}
+        type={type}
       >
         <Checker
           color={color}
           aria-hidden={true}
           checked={checked}
+          type={type}
+          isButton={isButton}
           className={hasFocusVisible ? "focusVisible" : ""}
         />
         <Input
           type="radio"
-          id={id || randomId}
+          id={innerId}
           ref={mergedRefs}
           name={name}
           value={value}
@@ -66,11 +84,12 @@ const RadioButton = forwardRef(function RadioButton(
   );
 });
 
-export default RadioButton;
+export default Radio;
 
-RadioButton.propTypes = {
+Radio.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
+    .isRequired,
   color: PropTypes.oneOf([
     "primary",
     "secondary",
@@ -82,14 +101,21 @@ RadioButton.propTypes = {
     "warn",
     "danger",
   ]),
+  errorMessage: PropTypes.string,
   id: PropTypes.string,
+  isButton: PropTypes.bool,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string,
   outlined: PropTypes.bool.isRequired,
+  type: PropTypes.oneOf(["outlined", "button", "default"]).isRequired,
+  borderRadius: PropTypes.oneOf(["sm", "md", "lg", "rounded"]).isRequired,
+  value: PropTypes.string.isRequired,
 };
 
-RadioButton.defaultProps = {
+Radio.defaultProps = {
   color: "primary",
-  outlined: true,
+  isButton: true,
+  outlined: false,
+  borderRadius: "sm",
+  type: "default",
 };

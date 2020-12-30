@@ -1,4 +1,4 @@
-import RadioButton from "./";
+import Radio from ".";
 const ComponentA = () => <div>Batata</div>;
 const ComponentB = () => <div>Arroz</div>;
 const ComponentC = () => <div>Feijão</div>;
@@ -6,8 +6,8 @@ const ComponentD = () => <div>Batata</div>;
 const components = { ComponentA, ComponentB, ComponentC, ComponentD };
 const componentMap = Object.keys(components);
 export default {
-  component: RadioButton,
-  title: "Desing System/Radio Button",
+  component: Radio,
+  title: "Desing System/Form/Radio",
   argTypes: {
     label: {
       defaultValue: "Label",
@@ -28,7 +28,8 @@ export default {
   },
 };
 
-export const radioButton = ({
+export const radio = ({
+  borderRadius,
   className,
   color,
   errorMessage,
@@ -37,18 +38,21 @@ export const radioButton = ({
   name,
   onChange,
   outlined,
+  type,
   value,
 }) => (
-  <RadioButton
+  <Radio
+    borderRadius={borderRadius}
     className={className}
     color={color}
     errorMessage={errorMessage}
     id={id}
     name={name}
     onChange={onChange}
-    value={value}
     outlined={outlined}
+    type={type}
+    value={value}
   >
     {children}
-  </RadioButton>
+  </Radio>
 );
