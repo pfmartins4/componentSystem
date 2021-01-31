@@ -66,10 +66,6 @@ const config = {
     new Dotenv({
       systemvars: true,
     }),
-    new HtmlWebpackPlugin({
-      template: "public/index.html",
-      // favicon: 'public/favicon.ico',
-    }),
   ],
 };
 

@@ -1,10 +1,14 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const nodeExternals = require("webpack-node-externals");
 
 const config = {
   mode: "production",
+  externals: [nodeExternals()],
   output: {
-    filename: "static/[name].[contenthash].js",
+    filename: "[name].js",
+    library: "pf-martins",
+    libraryTarget: "commonjs",
   },
   optimization: {
     minimize: true,
