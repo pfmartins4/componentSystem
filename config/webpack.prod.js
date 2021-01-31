@@ -7,7 +7,7 @@ const config = {
   externals: [nodeExternals()],
   output: {
     filename: "[name].js",
-    library: "pf-martins",
+    library: "pf-component-system-top",
     libraryTarget: "commonjs",
   },
   optimization: {

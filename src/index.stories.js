@@ -1,27 +1,25 @@
-import Button from "./index";
-import icons from "components/Icon/iconNames";
-import { colors } from "styles/theme";
+import Btn from "./index";
 
 export default {
-  component: Button,
-  title: "Desing System/Button",
+  component: Btn,
+  title: "Desing System/Btn",
   argTypes: {
     onClick: {
       action: "clicked",
     },
     children: {
-      control: "Button",
+      control: "Btn",
     },
     icon: {
       control: {
         type: "select",
-        options: icons,
+        options: "batata",
       },
     },
   },
 };
 
-export const button = ({
+export const Batn = ({
   borderRadius,
   children,
   className,
@@ -34,7 +32,7 @@ export const button = ({
   size,
 }) => {
   return (
-    <Button
+    <Btn
       borderRadius={borderRadius}
       className={className}
       color={color}
@@ -46,6 +44,6 @@ export const button = ({
       size={size}
     >
       {children}
-    </Button>
+    </Btn>
   );
 };
