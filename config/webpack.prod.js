@@ -4,10 +4,16 @@ const nodeExternals = require("webpack-node-externals");
 
 const config = {
   mode: "production",
-  externals: [nodeExternals()],
+  externals: [
+    ("styled-components": {
+      commonjs: "styled-components",
+      commonjs2: "styled-components",
+      amd: "styled-components",
+    }),
+  ],
   output: {
     filename: "[name].js",
-    library: "pf-martins",
+    library: "pf-component-system-top",
     libraryTarget: "commonjs",
   },
   optimization: {
