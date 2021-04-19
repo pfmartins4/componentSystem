@@ -4,13 +4,28 @@ const nodeExternals = require("webpack-node-externals");
 
 const config = {
   mode: "production",
-  externals: [
-    ("styled-components": {
+  externals: {
+    "styled-components": {
       commonjs: "styled-components",
       commonjs2: "styled-components",
       amd: "styled-components",
-    }),
-  ],
+    },
+    react: {
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "react",
+    },
+    "react-dom": {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "react-dom",
+    },
+    "material-design-icons": {
+      commonjs: "material-design-icons",
+      commonjs2: "material-design-icons",
+      amd: "material-design-icons",
+    },
+  },
   output: {
     filename: "[name].js",
     library: "pf-component-system-top",
