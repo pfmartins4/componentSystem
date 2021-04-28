@@ -28,7 +28,7 @@ const config = {
   },
   output: {
     filename: "[name].js",
-    library: "pf-component-system-top",
+    library: "pf-martins",
     libraryTarget: "commonjs",
   },
   optimization: {

@@ -1,5 +1,1 @@
-import { Button } from "pf-component-system-top";
-
-const Btn = pros => <Button {...pros} />;
-
-export default Btn;
+export { default as Button } from "components/Button";
